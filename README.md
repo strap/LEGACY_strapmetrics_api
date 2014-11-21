@@ -1,5 +1,5 @@
 #StrapMetrics API 
-###v0.2.6 (September 2014)
+###v0.2.6 (November 2014)
 
 ##Getting Started
 
@@ -46,3 +46,33 @@ cvar | Custom variables | Any valid JSON, useful for custom event data not captu
 activity | Activity user is performing | Defaults to UNKNOWN, used for providing activity algorithm with training data.
 resolution | Device screen resolution, if applicable | ex: "144x168"
 useragent | Device useragent | ex: "PEBBLE/2.3"
+
+##Report Resources
+
+Use the following GET requests to retrieve reports for your app. Currently all reports are returned with values totaled by day. Each report record contains totals for unique users, unique session counts, and total number of events.
+
+/reports - get all available report endpoints. Returns an array of available reports.
+
+* /reports/session - session counts
+* /reports/hourly - totals by hour
+* /reports/city - totals by city
+* /reports/region - totals by region
+* /reports/country - totals by country
+* /reports/event - totals by event
+* /reports/activity - totals by activity
+* /reports/http_useragent - totals by http_useragent
+* /reports/wearable_useragent - totals by wearable_useragent
+* /reports/visitor - totals by visitor
+* /reports/cvars - totals of custom variables
+
+
+###Parameters
+
+Parameter | Description | Values | Default
+--- | --- | --- | ---
+**token** | API Key (Create one in the Strap Dashboard) | A valid API Key |
+**app_id** | App ID (Create one in the Strap Dashboard) | A valid App ID |
+start_date | Start date to filter records from | Epoch timestamp in milliseconds | Today - 7 days
+end_date | End date to filter records to | Epoch timestamp in milliseconds | Today
+
+
